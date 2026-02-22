@@ -1,53 +1,60 @@
 import logo from "../assets/Logo1.svg";
-import {FaWhatsapp, FaTelegramPlane, FaVk} from 'react-icons/fa';
-import {Link, useLocation } from "react-router-dom";
-import {useEffect, useState} from "react";
+import {Link, NavLink, useLocation} from "react-router-dom";
+import {useState} from "react";
 import {Modal} from "./Modal.jsx";
+import {SocialLinks} from "./SocialLinks.jsx";
 
-export const Footer = () => {
+export const Footer = ({navLinks}) => {
     const location = useLocation();
     const [showModal, setShowModal] = useState(false);
 
+    const titleForModal = "Упс..."
+    const mainTextForModal = "Похоже, вы уже находитесь на этой странице"
+
+    const linkClickHandler = (to) => {
+        if (location.pathname === to) {
+            setShowModal(true);
+        }
+    }
+
     return (
-        <footer className="bg-black p-10 text-white min-h-[400px] flex flex-col justify-between">
-            <Modal isOpen={showModal} onClose={() => setShowModal(false)} header={"header"} mainText={"maintext"}/>
+        <footer className="bg-black p-10 text-white min-h-[300px] flex flex-col justify-between">
+            <Modal isOpen={showModal} onClose={() => setShowModal(false)} header={titleForModal} mainText={mainTextForModal} />
 
             <div className="flex justify-between items-start">
                 {/* Левая часть с логотипом */}
                 <div>
                     <Link to="/">
-                        <img src={logo} className="" alt="logo" />
+                        <img src={logo} className="" alt="logo"/>
                     </Link>
+                    <hr />
                 </div>
 
                 {/* Правая часть с секцией связи */}
                 <div className="text-right">
-                    <h3 className="text-lg mb-1">Связь</h3>
-                    <div className="flex gap-4 justify-end">
-                        <a href="#" className="hover:text-gray-400 transition-colors" aria-label="WhatsApp">
-                            <FaWhatsapp size={24} />
-                        </a>
-                        <a href="#" className="hover:text-gray-400 transition-colors" aria-label="Telegram">
-                            <FaTelegramPlane size={24} />
-                        </a>
-                        <a href="#" className="hover:text-gray-400 transition-colors" aria-label="VK">
-                            <FaVk size={24} />
-                        </a>
-                    </div>
+                    <h3 className="text-lg mb-1 text-center">Связь</h3>
+                    <SocialLinks variant="default" size={24} />
                 </div>
             </div>
 
             {/* Нижняя часть с контактами */}
             <div>
-                <Link to="/contacts" onClick={() => {
-                    if(location.pathname === '/contacts'){
-                        setShowModal(true);
-                    } else {
-                        useLocation("/contacts")
-                    }
-                }}>
-                    Контакты
-                </Link>
+                {
+                    navLinks.map(({to, label}) => {
+                        return (
+                            <div className="flex items-start">
+                                <NavLink
+                                    key={to}
+                                    to={to}
+                                    onClick={() => linkClickHandler(to)}
+                                >
+                                    {label}
+                                </NavLink>
+                            </div>
+
+                        )
+                    })
+                }
             </div>
         </footer>
     )

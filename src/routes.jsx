@@ -4,6 +4,7 @@ import {About} from "./pages/About.jsx";
 import {Products} from "./pages/Products.jsx";
 import {Contacts} from "./pages/Contacts.jsx";
 import {Blog} from "./pages/Blog.jsx";
+import {Tariffs} from "./components/Tariffs.js";
 
 export const routes = createBrowserRouter([
     {
@@ -25,6 +26,10 @@ export const routes = createBrowserRouter([
             {
                 path: "/blog",
                 element: <Blog />
+            },
+            {
+                path: "/tariffs",
+                element: <Tariffs />
             }
         ]
     }

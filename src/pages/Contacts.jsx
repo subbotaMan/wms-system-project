@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import {FaWhatsapp, FaTelegramPlane, FaVk} from 'react-icons/fa';
 import {Preloader} from "../components/Preloader.jsx";
+import {SocialLinks} from "../components/SocialLinks.jsx";
 
 export const Contacts = () => {
     const [mapLoaded, setMapLoaded] = useState(false);
@@ -71,69 +72,7 @@ export const Contacts = () => {
                     <h2 className="text-2xl font-semibold text-white mb-8">Свяжитесь с нами в мессенджерах</h2>
 
                     <div className="flex justify-center items-center space-x-8">
-                        {/* WhatsApp */}
-                        <a
-                            href="https://wa.me/79999999999"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group flex flex-col items-center space-y-3"
-                            aria-label="Написать в WhatsApp"
-                        >
-                            <div
-                                className="p-5 bg-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-800 group-hover:border-green-500/50 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-green-500/20 group-hover:scale-110">
-                                <FaWhatsapp
-                                    size={48}
-                                    className="text-gray-400 group-hover:text-green-500 transition-all duration-300 group-hover:rotate-6"
-                                />
-                            </div>
-                            <span
-                                className="text-gray-400 group-hover:text-green-500 transition-colors text-sm font-medium">
-                                WhatsApp
-                            </span>
-                        </a>
-
-                        {/* Telegram */}
-                        <a
-                            href="https://t.me/sklados"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group flex flex-col items-center space-y-3"
-                            aria-label="Написать в Telegram"
-                        >
-                            <div
-                                className="p-5 bg-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-800 group-hover:border-blue-500/50 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-blue-500/20 group-hover:scale-110">
-                                <FaTelegramPlane
-                                    size={48}
-                                    className="text-gray-400 group-hover:text-blue-500 transition-all duration-300 group-hover:rotate-6"
-                                />
-                            </div>
-                            <span
-                                className="text-gray-400 group-hover:text-blue-500 transition-colors text-sm font-medium">
-                                Telegram
-                            </span>
-                        </a>
-
-                        {/* VKontakte */}
-                        <a
-                            href="https://vk.com/sklados"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group flex flex-col items-center space-y-3"
-                            aria-label="Написать в VKontakte"
-                        >
-                            <div
-                                className="p-5 bg-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-800 group-hover:border-blue-500/50 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-blue-500/20 group-hover:scale-110">
-                                <FaVk
-                                    size={48}
-                                    className="text-gray-400 group-hover:text-blue-600 transition-all duration-300 group-hover:rotate-6"
-                                />
-
-                            </div>
-                            <span
-                                className="text-gray-400 group-hover:text-blue-600 transition-colors text-sm font-medium">
-                                    VKontakte
-                            </span>
-                        </a>
+                        <SocialLinks variant="card" size={48} showLabel={true} />
                     </div>
                 </div>
             </div>

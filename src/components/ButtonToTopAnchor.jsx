@@ -1,5 +1,5 @@
-import { FaArrowUp } from "react-icons/fa";
-import { useScrollHandler } from "../hooks/useScrollHandler.js";
+import {FaArrowUp} from "react-icons/fa";
+import {useScrollHandler} from "../hooks/useScrollHandler.js";
 
 export const ButtonToTopAnchor = () => {
     const isScrolled = useScrollHandler(100);
@@ -19,7 +19,7 @@ export const ButtonToTopAnchor = () => {
             onClick={scrollToTop}
             aria-label="Scroll to top"
         >
-            <FaArrowUp size={20} />
+            <FaArrowUp size={20}/>
         </button>
     );
 };

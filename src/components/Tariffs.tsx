@@ -1,7 +1,7 @@
-export const Blog = () => {
+export const Tariffs = () => {
     return (
         <div>
-            Blog
+            Tariffs
         </div>
     )
 }
