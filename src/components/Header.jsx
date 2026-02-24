@@ -8,10 +8,12 @@ export const Header = ({navLinks}) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const getLinkClass = (isActive) =>
-        `text-gray-300 hover:text-white transition-colors duration-200 ${isActive ? 'text-white font-medium' : ''}`;
+        `text-gray-300 relative py-1 transition-colors duration-200 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-white after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left ${
+            isActive ? 'text-white font-medium after:scale-x-100' : ''
+        }`;
 
     const getMobileLinkClass = (isActive) =>
-        `w-full text-center py-2 hover:bg-gray-800/50 ${getLinkClass(isActive)}`;
+        `w-full text-center py-2 hover:bg-gray-800/50 ${getLinkClass(isActive).replace('after:scale-x-0', 'after:scale-x-0 md:after:scale-x-0')}`;
 
     return (
         <header
@@ -35,7 +37,11 @@ export const Header = ({navLinks}) => {
                 </nav>
 
                 <div className="flex items-center space-x-4">
-                    <a href="tel:79993568855" className="text-gray-300 hover:text-white" aria-label="Позвонить нам">
+                    <a
+                        href="tel:79993568855"
+                        className="text-gray-300 hover:text-white relative p-1 after:content-[''] after:absolute after:-bottom-0.5 after:left-0 after:w-full after:h-0.5 after:bg-white after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left"
+                        aria-label="Позвонить нам"
+                    >
                         <IoCall size={24}/>
                     </a>
 
