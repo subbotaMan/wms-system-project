@@ -8,12 +8,14 @@ export const Header = ({navLinks}) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const getLinkClass = (isActive) =>
-        `text-gray-300 relative py-1 transition-colors duration-200 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-white after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left ${
-            isActive ? 'text-white font-medium after:scale-x-100' : ''
+        `relative py-1 transition-colors duration-200 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-white after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left ${
+            isActive ? 'text-white' : 'text-gray-300 hover:text-white'
         }`;
 
     const getMobileLinkClass = (isActive) =>
-        `w-full text-center py-2 hover:bg-gray-800/50 ${getLinkClass(isActive).replace('after:scale-x-0', 'after:scale-x-0 md:after:scale-x-0')}`;
+        `w-full text-center py-2 hover:bg-gray-800/50 ${
+            isActive ? 'text-white' : 'text-gray-300 hover:text-white'
+        }`;
 
     return (
         <header

@@ -566,5 +566,12 @@ export const UserAgreement = () => {
                 </section>
             </div>
         </div>
+        <div className={`mt-8 pt-4 text-sm ${styles.colors.text.muted} ${styles.borders.top}`}>
+            <p>Последнее обновление: {new Date().toLocaleDateString('ru-RU', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            })}</p>
+        </div>
     </div>);
 };

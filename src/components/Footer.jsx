@@ -85,10 +85,6 @@ export const Footer = ({navLinks}) => {
                                  className="text-sm text-gray-400 hover:text-white transition-colors">
                             Пользовательское соглашение
                         </NavLink>
-                        <NavLink to="/public-offer"
-                                 className="text-sm text-gray-400 hover:text-white transition-colors">
-                            Публичная оферта
-                        </NavLink>
                         <NavLink to="/privacy-policy"
                                  className="text-sm text-gray-400 hover:text-white transition-colors">
                             Политика конфиденциальности
